@@ -51,7 +51,9 @@
                             &amp;&amp; <span class="font-medium">statusRequest = 0</span> | artinya NIK pasien sudah pernah dikirim tapi tidak dapat balikan ID.
                         </h2>
 
-                        <button class="bg-emerald-500 px-3 py-1 text-white shadow-md shadow-emerald-500/20 rounded text-sm hover:bg-emerald-700 transition-colors duration-200">Export</button>
+                        <a href="{{ route('export') }}" target="_blank">
+                            <button class="bg-emerald-500 px-3 py-1 text-white shadow-md shadow-emerald-500/20 rounded text-sm hover:bg-emerald-700 transition-colors duration-200">Export</button>
+                        </a>
                     </div>
 
                     <table class="w-full">
