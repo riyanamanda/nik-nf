@@ -5,9 +5,12 @@ namespace App\Exports;
 use App\Models\Patient;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
+use Maatwebsite\Excel\Concerns\WithStyles;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class PatientsExport implements FromView, WithColumnFormatting
+class PatientsExport implements FromView, ShouldAutoSize, WithColumnFormatting, WithStyles
 {
     public function view(): View
     {
@@ -24,6 +27,13 @@ class PatientsExport implements FromView, WithColumnFormatting
     {
         return [
             'B' => '0',
+        ];
+    }
+
+    public function styles(Worksheet $sheet)
+    {
+        return [
+            1 => ['font' => ['bold' => true]],
         ];
     }
 }
