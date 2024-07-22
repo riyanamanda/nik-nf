@@ -81,7 +81,7 @@
                                         {{ $patient->identitas == null ? 'null' : $patient->identitas->NAMA }}
                                     </td>
                                     <td class="p-3 text-sm text-gray-700 text-center">
-                                        {{ \Carbon\Carbon::parse($patient->identitas->TANGGAL_LAHIR)->isoFormat('DD-MM-YYYY') }}
+                                        {{ $patient->identitas == null ? 'null' : \Carbon\Carbon::parse($patient->identitas->TANGGAL_LAHIR)->isoFormat('DD-MM-YYYY') }}
                                     </td>
                                     <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                                         <span
