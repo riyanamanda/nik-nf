@@ -17,5 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(HomeController::class)
     ->group(function () {
         Route::get('/', 'index')->name('home');
+        Route::get('/edit-nik/{norm}/{no_kartu}', 'edit_nik')->name('edit.nik');
+        Route::patch('/edit-nik/{norm}', 'update_nik')->name('edit.update');
         Route::get('/export', 'export')->name('export');
     });

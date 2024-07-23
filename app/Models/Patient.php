@@ -13,14 +13,28 @@ class Patient extends Model
 
     protected $table = 'patient';
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'refId';
 
     public $incrementing = false;
 
     protected $keyType = 'string';
 
+    protected $fillable = ['nik', 'statusRequest'];
+
+    public $timestamps = false;
+
     public function identitas()
     {
         return $this->belongsTo(Pasien::class, 'refId', 'NORM');
+    }
+
+    public function kartu()
+    {
+        return $this->belongsTo(KartuIdentitasPasien::class, 'refId', 'NORM');
+    }
+
+    public function asuransi()
+    {
+        return $this->belongsTo(KartuAsuransiPasien::class, 'refId', 'NORM');
     }
 }
