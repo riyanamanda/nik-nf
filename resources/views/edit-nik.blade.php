@@ -38,13 +38,21 @@
                 <div class="mb-3 text-sm flex items-center space-x-5">
                     <div class="leading-relaxed font-medium">
                         <div>NIK</div>
-                        <p class="bg-lime-100">{{ $patient->kartu->NOMOR }}</p>
+                        <p class="bg-lime-100"
+                        @if ($patient->kartu->NOMOR != $bpjs['response']['peserta']['nik'])
+                            style="background-color:red;color:white;"
+                        @endif
+                        >{{ $patient->kartu->NOMOR }}</p>
                         <p class="bg-sky-100">{{ $bpjs['response']['peserta']['nik'] }}</p>
                     </div>
 
                     <div class="leading-relaxed">
                         <div>Tanggal Lahir</div>
-                        <div class="bg-lime-100 flex space-x-3">
+                        <div class="bg-lime-100 flex space-x-3"
+                        @if (\Carbon\Carbon::parse($patient->identitas->TANGGAL_LAHIR)->format('d-m-y') != \Carbon\Carbon::parse($bpjs['response']['peserta']['tglLahir'])->format('d-m-y'))
+                            style="background-color:red;color:white;"
+                        @endif
+                        >
                             {{ \Carbon\Carbon::parse($patient->identitas->TANGGAL_LAHIR)->isoFormat('DD MMMM YYYY') }}
                         </div>
                         <p class="bg-sky-100">
