@@ -48,12 +48,16 @@ class HomeController extends Controller
             ->where('refId', $refid)
             ->first();
 
+        if (is_null($patient->kartu)) {
+            return back()->withToastError('Pasien tidak memiliki NIK di master pasien!');
+        }
+
         $time = Carbon::now()->format('Y-m-d');
         $endpoint = 'Peserta/nokartu/'.$no_kartu.'/tglSEP/'.$time;
         $bpjs = json_decode($this->bridging->getRequest($endpoint), true);
 
         if ($bpjs['response'] == null) {
-            return back()->withToastWarning($patient->identitas->NAMA.' '.$bpjs['metaData']['message']);
+            return back()->withToastError($patient->identitas->NAMA.' '.$bpjs['metaData']['message']);
         }
 
         return view('edit-nik', compact('patient', 'bpjs'));
