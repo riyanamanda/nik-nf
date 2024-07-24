@@ -52,6 +52,10 @@ class HomeController extends Controller
         $endpoint = 'Peserta/nokartu/' . $no_kartu . '/tglSEP/' . $time;
         $bpjs = json_decode($this->bridging->getRequest($endpoint), true);
 
+        if($bpjs['response'] == null){
+            return back()->withToastWarning($patient->identitas->NAMA . ' ' . $bpjs['metaData']['message']);
+        }
+
         return view('edit-nik', compact('patient', 'bpjs'));
     }
 
