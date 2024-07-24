@@ -8,6 +8,7 @@
 
             <input type="text" name="nik" value="{{ $bpjs['response']['peserta']['nik'] }}" readonly hidden>
             <input type="date" name="tgl_lahir" value="{{ $bpjs['response']['peserta']['tglLahir'] }}" readonly hidden>
+            <input type="number" name="norm_bpjs" value="{{ $bpjs['response']['peserta']['mr']['noMR'] }}" readonly hidden>
 
             <div class="flex items-center justify-between mb-5 border-b pb-3">
                 <p class="tracking-wider leading-relaxed flex flex-col">
@@ -31,31 +32,31 @@
             <div class="flex items-start justify-between">
                 <div class="leading-relaxed text-sm">
                     <div>Nama</div>
-                    <p class="font-semibold bg-lime-100">{{ $patient->identitas->NAMA }}</p>
-                    <p class="font-semibold bg-sky-100">{{ $bpjs['response']['peserta']['nama'] }}</p>
+                    <p class="font-semibold bg-lime-100 px-3 py-0.5">{{ $patient->identitas->NAMA }}</p>
+                    <p class="font-semibold bg-sky-100 px-3 py-0.5">{{ $bpjs['response']['peserta']['nama'] }}</p>
                 </div>
 
                 <div class="mb-3 text-sm flex items-center space-x-5">
                     <div class="leading-relaxed font-medium">
                         <div>NIK</div>
-                        <p class="bg-lime-100"
+                        <p class="bg-lime-100 px-3 py-0.5"
                         @if ($patient->kartu->NOMOR != $bpjs['response']['peserta']['nik'])
                             style="background-color:red;color:white;"
                         @endif
                         >{{ $patient->kartu->NOMOR }}</p>
-                        <p class="bg-sky-100">{{ $bpjs['response']['peserta']['nik'] }}</p>
+                        <p class="bg-sky-100 px-3 py-0.5">{{ $bpjs['response']['peserta']['nik'] }}</p>
                     </div>
 
                     <div class="leading-relaxed">
                         <div>Tanggal Lahir</div>
-                        <div class="bg-lime-100 flex space-x-3"
+                        <div class="bg-lime-100 flex space-x-3 px-3 py-0.5"
                         @if (\Carbon\Carbon::parse($patient->identitas->TANGGAL_LAHIR)->format('d-m-y') != \Carbon\Carbon::parse($bpjs['response']['peserta']['tglLahir'])->format('d-m-y'))
                             style="background-color:red;color:white;"
                         @endif
                         >
                             {{ \Carbon\Carbon::parse($patient->identitas->TANGGAL_LAHIR)->isoFormat('DD MMMM YYYY') }}
                         </div>
-                        <p class="bg-sky-100">
+                        <p class="bg-sky-100 px-3 py-0.5">
                             {{ \Carbon\Carbon::parse($bpjs['response']['peserta']['tglLahir'])->isoFormat('DD MMMM YYYY') }}
                         </p>
                     </div>

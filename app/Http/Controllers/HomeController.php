@@ -23,7 +23,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $patients = Patient::with('identitas')
+        $patients = Patient::with('identitas', 'asuransi')
             ->select('id', 'refId', 'nik', 'getDate', 'statusRequest')
             ->where('id', null)
             ->where('statusRequest', 0)
@@ -49,11 +49,11 @@ class HomeController extends Controller
             ->first();
 
         $time = Carbon::now()->format('Y-m-d');
-        $endpoint = 'Peserta/nokartu/' . $no_kartu . '/tglSEP/' . $time;
+        $endpoint = 'Peserta/nokartu/'.$no_kartu.'/tglSEP/'.$time;
         $bpjs = json_decode($this->bridging->getRequest($endpoint), true);
 
-        if($bpjs['response'] == null){
-            return back()->withToastWarning($patient->identitas->NAMA . ' ' . $bpjs['metaData']['message']);
+        if ($bpjs['response'] == null) {
+            return back()->withToastWarning($patient->identitas->NAMA.' '.$bpjs['metaData']['message']);
         }
 
         return view('edit-nik', compact('patient', 'bpjs'));
@@ -61,6 +61,10 @@ class HomeController extends Controller
 
     public function update_nik(Request $request, $norm)
     {
+        if ($norm != $request->norm_bpjs) {
+            return back()->withToastError('No RM tidak sesuai');
+        }
+
         DB::connection('gos_master')->transaction(function () use ($request, $norm) {
             $pasien = Pasien::where('NORM', $norm)->first();
             $pasien->update([
