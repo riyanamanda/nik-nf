@@ -49,7 +49,7 @@ class HomeController extends Controller
             ->first();
 
         $time = Carbon::now()->format('Y-m-d');
-        $endpoint = 'Peserta/nokartu/'.$no_kartu.'/tglSEP/'.$time;
+        $endpoint = 'Peserta/nokartu/' . $no_kartu . '/tglSEP/' . $time;
         $bpjs = json_decode($this->bridging->getRequest($endpoint), true);
 
         return view('edit-nik', compact('patient', 'bpjs'));
