@@ -28,13 +28,19 @@ copy `.env.example` dan rename menjadi `.env` atau jalankan perintah terminal be
 cp .env.example .env
 ```
 
-buka file `.env` dan configurasi database credential
+buka file `.env` dan configurasi database dan vclaim:
 
 ```bash
 DB_HOST=127.0.0.1       #ip database
 DB_PORT=3306            #port database
 DB_USERNAME=admin       #username
 DB_PASSWORD=password    #password
+
+# BPJS
+CONS_ID=
+SECRET_KEY=
+USER_KEY_VCLAIM=
+API_BPJS_VCLAIM=https://apijkn.bpjs-kesehatan.go.id/vclaim-rest/
 ```
 
 kemudian hapus file `composer.lock` untuk menghindari error saat menjalankan perintah composer:
