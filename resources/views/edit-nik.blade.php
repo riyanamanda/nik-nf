@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            <div class="flex items-center justify-start space-x-3 border-t py-3">
+            <div class="flex items-center justify-end space-x-3 border-t py-3">
                 <a href="{{ URL::previous() }}">
                     <button type="button"
                         class="px-3 py-1 rounded bg-gray-300 shadow tracking-wide text-sm">Cancel</button>
