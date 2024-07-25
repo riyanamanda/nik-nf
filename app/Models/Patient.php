@@ -11,7 +11,7 @@ class Patient extends Model
 
     protected $connection = 'gos_ihs';
 
-    protected $table = 'patient';
+    protected $table = 'kemkes-ihs.patient';
 
     protected $primaryKey = 'refId';
 
@@ -19,7 +19,7 @@ class Patient extends Model
 
     protected $keyType = 'string';
 
-    protected $fillable = ['nik', 'statusRequest'];
+    protected $fillable = ['birthDate', 'nik', 'statusRequest'];
 
     public $timestamps = false;
 

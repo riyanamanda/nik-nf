@@ -24,9 +24,13 @@ class HomeController extends Controller
     public function index()
     {
         $patients = Patient::with('identitas', 'asuransi')
-            ->select('id', 'refId', 'nik', 'getDate', 'statusRequest')
+            ->select('id', 'birthDate', 'refId', 'nik', 'getDate', 'statusRequest')
             ->where('id', null)
             ->where('statusRequest', 0)
+            ->where('birthDate', '0000-00-00')
+            ->whereHas('asuransi', function ($query) {
+                $query->whereNot('NOMOR', null);
+            })
             ->orderBy(
                 Pasien::query()
                     ->select('NAMA')
@@ -86,6 +90,7 @@ class HomeController extends Controller
             DB::connection('gos_ihs')->transaction(function () use ($request, $norm) {
                 $patient = Patient::where('refId', $norm)->first();
                 $patient->update([
+                    'birthDate' => $request->tgl_lahir,
                     'nik' => $request->nik,
                     'statusRequest' => 1,
                 ]);

@@ -19,7 +19,6 @@
             <thead class="bg-gray-50 border-b-2 border-gray-200">
                 <tr>
                     <th class="w-5 p-3 text-sm font-semibold tracking-wide text-left">#</th>
-                    <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left">Action</th>
                     <th class="w-20 p-3 text-sm font-semibold tracking-wide text-left">NO. RM</th>
                     <th class="p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
                     <th class="p-3 text-sm font-semibold tracking-wide text-center">Tanggal Lahir</th>
@@ -27,6 +26,7 @@
                     <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left">BPJS</th>
                     <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">ID Satu Sehat</th>
                     <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left">Get Date</th>
+                    <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left">Action</th>
 
                 </tr>
             </thead>
@@ -36,16 +36,6 @@
                         <td class="p-3 text-sm text-gray-800 whitespace-nowrap">
                             {{ $loop->index + 1 }}
                         </td>
-                        <td>
-                            @if ($patient->asuransi != null)
-                                <a href="{{ route('edit.nik', [$patient->refId, $patient->asuransi->NOMOR]) }}">
-                                    <button
-                                        class="bg-rose-500 px-3 py-1 text-white shadow-md shadow-rose-500/20 rounded text-xs hover:bg-rose-700 transition-colors duration-200">Update
-                                        NIK</button>
-                                </a>
-                            @endif
-                        </td>
-
                         <td class="p-3 text-sm text-gray-800 whitespace-nowrap">
                             {{ $patient->refId }}
                         </td>
@@ -72,6 +62,15 @@
                         </td>
                         <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                             {{ \Carbon\Carbon::parse($patient->getDate)->isoFormat('d MMMM Y') }}
+                        </td>
+                        <td>
+                            @if ($patient->asuransi != null)
+                                <a href="{{ route('edit.nik', [$patient->refId, $patient->asuransi->NOMOR]) }}">
+                                    <button
+                                        class="bg-rose-500 px-3 py-1 text-white shadow-md shadow-rose-500/20 rounded text-xs hover:bg-rose-700 transition-colors duration-200">Update
+                                        NIK</button>
+                                </a>
+                            @endif
                         </td>
                     </tr>
                 @empty

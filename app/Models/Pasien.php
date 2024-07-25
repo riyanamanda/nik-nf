@@ -11,7 +11,7 @@ class Pasien extends Model
 
     protected $connection = 'gos_master';
 
-    protected $table = 'pasien';
+    protected $table = 'master.pasien';
 
     protected $primaryKey = 'NORM';
 

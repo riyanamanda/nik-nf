@@ -11,7 +11,7 @@ class KartuIdentitasPasien extends Model
 
     protected $connection = 'gos_master';
 
-    protected $table = 'kartu_identitas_pasien';
+    protected $table = 'master.kartu_identitas_pasien';
 
     protected $primaryKey = 'NORM';
 
