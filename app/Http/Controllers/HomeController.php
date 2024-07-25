@@ -65,7 +65,7 @@ class HomeController extends Controller
 
     public function update_nik(Request $request, $norm)
     {
-        if ($norm != $request->norm_bpjs) {
+        if (! is_null($request->norm_bpjs) && $norm != $request->norm_bpjs) {
             return back()->withToastError('No RM tidak sesuai');
         }
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="bg-white p-5 rounded shadow border-none w-6/12 mx-auto">
+    <div class="bg-white p-5 rounded shadow border-none w-7/12 mx-auto">
         <form action="{{ route('edit.update', $patient->refId) }}" method="POST">
             @csrf
             @method('PATCH')
@@ -33,7 +33,9 @@
                 <div class="leading-relaxed text-sm">
                     <div>Nama</div>
                     <p class="font-semibold bg-lime-100 px-3 py-0.5">{{ $patient->identitas->NAMA }}</p>
-                    <p class="font-semibold bg-sky-100 px-3 py-0.5">{{ $bpjs['response']['peserta']['nama'] }}</p>
+                    <p class="font-semibold bg-sky-100 px-3 py-0.5">{{ $bpjs['response']['peserta']['nama'] }} @if ($bpjs['response']['peserta']['mr']['noMR'])
+                        ({{ $bpjs['response']['peserta']['mr']['noMR'] }})
+                    @endif</p>
                 </div>
 
                 <div class="mb-3 text-sm flex items-center space-x-5">
@@ -63,7 +65,7 @@
                 </div>
             </div>
 
-            <div class="flex items-center justify-end space-x-5 border-t py-3">
+            <div class="flex items-center justify-start space-x-3 border-t py-3">
                 <a href="{{ URL::previous() }}">
                     <button type="button"
                         class="px-3 py-1 rounded bg-gray-300 shadow tracking-wide text-sm">Cancel</button>
