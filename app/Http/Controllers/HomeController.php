@@ -30,6 +30,7 @@ class HomeController extends Controller
             ->where('birthDate', '0000-00-00')
             ->whereHas('asuransi', function ($query) {
                 $query->whereNot('NOMOR', null);
+                $query->where('JENIS', 2);
             })
             ->orderBy(
                 Pasien::query()
@@ -48,7 +49,7 @@ class HomeController extends Controller
 
     public function edit_nik($refid, $no_kartu)
     {
-        $patient = Patient::query()
+        $patient = Patient::with('identitas', 'asuransi')
             ->where('refId', $refid)
             ->first();
 
