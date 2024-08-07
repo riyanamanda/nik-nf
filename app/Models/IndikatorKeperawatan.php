@@ -18,4 +18,9 @@ class IndikatorKeperawatan extends Model
     protected $guarded = ['ID'];
 
     public $timestamps = false;
+
+    function jenis_indikator()
+    {
+        return $this->belongsTo(JenisIndikatorKeperawatan::class, 'ID', 'ID');
+    }
 }

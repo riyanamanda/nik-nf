@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KeperawatanController;
 use App\Http\Controllers\PasienController;
 use App\Models\DiagnosaKeperawatan;
 use Illuminate\Support\Facades\File;
@@ -29,4 +30,9 @@ Route::controller(PasienController::class)
     ->group(function () {
         Route::get('/pasien', 'index')->name('pasien.index');
         Route::put('/pasien', 'update')->name('pasien.update');
+    });
+
+Route::controller(KeperawatanController::class)
+    ->group(function () {
+        Route::get('/keperawatan', 'index')->name('keperawatan.index');
     });
