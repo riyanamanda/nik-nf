@@ -15,7 +15,32 @@ class Pasien extends Model
 
     protected $primaryKey = 'NORM';
 
-    protected $fillable = ['TANGGAL_LAHIR'];
+    protected $fillable = ['NORM'];
 
     public $timestamps = false;
+
+    public function ktp()
+    {
+        return $this->belongsTo(KartuIdentitasPasien::class, 'NORM', 'NORM');
+    }
+
+    public function asuransi()
+    {
+        return $this->belongsTo(KartuAsuransiPasien::class, 'NORM', 'NORM');
+    }
+
+    public function keluarga()
+    {
+        return $this->belongsTo(KeluargaPasien::class, 'NORM', 'NORM');
+    }
+
+    public function kontak_keluarga()
+    {
+        return $this->belongsTo(KontakKeluargaPasien::class, 'NORM', 'NORM');
+    }
+
+    public function kontak_pasien()
+    {
+        return $this->belongsTo(KontakPasien::class, 'NORM', 'NORM');
+    }
 }

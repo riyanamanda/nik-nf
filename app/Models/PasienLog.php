@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KartuIdentitasPasien extends Model
+class PasienLog extends Model
 {
     use HasFactory;
 
     protected $connection = 'gos_master';
 
-    protected $table = 'master.kartu_identitas_pasien';
+    protected $table = 'master.pasien_log';
 
-    protected $primaryKey = 'NORM';
-
-    protected $fillable = ['NORM', 'NOMOR'];
+    protected $fillable = ['NORM'];
 
     public $timestamps = false;
 }

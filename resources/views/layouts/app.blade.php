@@ -19,26 +19,10 @@
 
 <body class="antialiased h-full font-roboto">
     <div class="min-h-full">
-        <nav class="bg-gray-800">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="flex h-16 items-center justify-between">
-                    <div class="flex items-center">
-                        <div class="flex items-baseline space-x-4">
-                            <a href="{{ route('home') }}"
-                                class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-                                aria-current="page">Home</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <x-navigation/>
 
-        <header class="bg-white shadow">
-            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 leading-relaxed">
-                <h1 class="text-3xl font-bold tracking-tight text-gray-900 mb-2">Pasien</h1>
-                <p class="text-sm">Pasien satu sehat yang tidak memiliki ID.</p>
-            </div>
-        </header>
+        @yield('header')
+
         <main>
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                 @yield('content')

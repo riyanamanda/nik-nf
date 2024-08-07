@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('header')
+    <x-header title="Pasien" desc="Update NIK pasien sesuai dengan BPJS."/>
+@endsection
+
 @section('content')
     <div class="bg-white p-5 rounded shadow border-none w-7/12 mx-auto">
         <form action="{{ route('edit.update', $patient->refId) }}" method="POST">

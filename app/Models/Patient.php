@@ -19,7 +19,7 @@ class Patient extends Model
 
     protected $keyType = 'string';
 
-    protected $fillable = ['birthDate', 'nik', 'statusRequest'];
+    protected $fillable = ['birthDate', 'nik', 'statusRequest', 'refId'];
 
     public $timestamps = false;
 

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('header')
+    <x-header title="Pasien" desc="Pasien satu sehat yang tidak memiliki ID satu sehat."/>
+@endsection
+
 @section('content')
     <div class="bg-white p-5 rounded shadow border-none">
         <div class="flex items-start justify-between">

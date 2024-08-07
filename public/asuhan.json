@@ -1,0 +1,594 @@
+[
+    {
+        "kode": "0001",
+        "desc": "Bersihan Jalan Napas Tidak Efektif"
+    },
+    {
+        "kode": "0002",
+        "desc": "Gangguan Penyapihan Ventilator"
+    },
+    {
+        "kode": "0003",
+        "desc": "Gangguan Pertukaran Gas"
+    },
+    {
+        "kode": "0004",
+        "desc": "Gangguan Ventilasi Spontan"
+    },
+    {
+        "kode": "0005",
+        "desc": "Pola Napas Tidak Efektif"
+    },
+    {
+        "kode": "0006",
+        "desc": "Risiko Aspirasi"
+    },
+    {
+        "kode": "0007",
+        "desc": "Gangguan Sirkulasi Spontan"
+    },
+    {
+        "kode": "0008",
+        "desc": "Penurunan Curah Jantung"
+    },
+    {
+        "kode": "0009",
+        "desc": "Perfusi Perifer Tidak Efektif"
+    },
+    {
+        "kode": "0010",
+        "desc": "Risiko Gangguan Sirkulasi Spontan"
+    },
+    {
+        "kode": "0011",
+        "desc": "Risiko Penurunan Curah Jantung"
+    },
+    {
+        "kode": "0012",
+        "desc": "Risiko Perdarahan"
+    },
+    {
+        "kode": "0013",
+        "desc": "Risiko Perfusi Gastrointestinal Tidak Efektif"
+    },
+    {
+        "kode": "0014",
+        "desc": "Risiko Perfusi Miokard Tidak Efektif"
+    },
+    {
+        "kode": "0015",
+        "desc": "Risiko Perfusi Perifer Tidak Efektif"
+    },
+    {
+        "kode": "0016",
+        "desc": "Risiko Perfusi Renal Tidak Efektif"
+    },
+    {
+        "kode": "0017",
+        "desc": "Risiko Perfusi Serebral Tidak Efektif"
+    },
+    {
+        "kode": "0018",
+        "desc": "Berat Badan Lebih"
+    },
+    {
+        "kode": "0019",
+        "desc": "Defisit Nutrisi"
+    },
+    {
+        "kode": "0020",
+        "desc": "Diare"
+    },
+    {
+        "kode": "0021",
+        "desc": "Disfungsi Motilitas Gastrointestinal"
+    },
+    {
+        "kode": "0022",
+        "desc": "Hipervolemia"
+    },
+    {
+        "kode": "0023",
+        "desc": "Hipovolemia"
+    },
+    {
+        "kode": "0024",
+        "desc": "Ikterik Neonatus"
+    },
+    {
+        "kode": "0025",
+        "desc": "Kesiapan Peningkatan Keseimbangan Cairan"
+    },
+    {
+        "kode": "0026",
+        "desc": "Kesiapan Peningkatan Nutrisi"
+    },
+    {
+        "kode": "0027",
+        "desc": "Ketidakstabilan Kadar Glukosa Darah"
+    },
+    {
+        "kode": "0028",
+        "desc": "Menyusui Efektif"
+    },
+    {
+        "kode": "0029",
+        "desc": "Menyusui Tidak Efektif"
+    },
+    {
+        "kode": "0030",
+        "desc": "Obesitas"
+    },
+    {
+        "kode": "0031",
+        "desc": "Risiko Berat Badan Lebih"
+    },
+    {
+        "kode": "0032",
+        "desc": "Risiko Defisit Nutrisi"
+    },
+    {
+        "kode": "0033",
+        "desc": "Risiko Disfungsi Motilitas Gastrointestinal"
+    },
+    {
+        "kode": "0034",
+        "desc": "Risiko Hipovolemia"
+    },
+    {
+        "kode": "0035",
+        "desc": "Risiko Ikterik Neonatus"
+    },
+    {
+        "kode": "0036",
+        "desc": "Risiko Ketidakseimbangan Cairan"
+    },
+    {
+        "kode": "0037",
+        "desc": "Risiko Ketidakseimbangan Elektrolit"
+    },
+    {
+        "kode": "0038",
+        "desc": "Risiko Ketidakstabilan Kadar Glukosa Darah"
+    },
+    {
+        "kode": "0039",
+        "desc": "Risiko Syok"
+    },
+    {
+        "kode": "0040",
+        "desc": "Gangguan Eliminasi Urin"
+    },
+    {
+        "kode": "0041",
+        "desc": "Inkontinensia Fekal"
+    },
+    {
+        "kode": "0042",
+        "desc": "Inkontinensia Urin Berlanjut"
+    },
+    {
+        "kode": "0043",
+        "desc": "Inkontinensia Urin Fungsional"
+    },
+    {
+        "kode": "0044",
+        "desc": "Inkontinensia Urin Berlebih"
+    },
+    {
+        "kode": "0045",
+        "desc": "Inkontinensia Urin Refleks"
+    },
+    {
+        "kode": "0046",
+        "desc": "Inkontinensia Urin Stres"
+    },
+    {
+        "kode": "0047",
+        "desc": "Inkontinensia Urine Urgensi"
+    },
+    {
+        "kode": "0048",
+        "desc": "Kesiapan Peningkatan Eliminasi Urin"
+    },
+    {
+        "kode": "0049",
+        "desc": "Konstipasi"
+    },
+    {
+        "kode": "0050",
+        "desc": "Retensi Urin"
+    },
+    {
+        "kode": "0051",
+        "desc": "Risiko Inkontinensia Urin Urgensi"
+    },
+    {
+        "kode": "0052",
+        "desc": "Risiko Konstipasi"
+    },
+    {
+        "kode": "0053",
+        "desc": "Disorganisasi Perilaku Bayi"
+    },
+    {
+        "kode": "0054",
+        "desc": "Gangguan Mobilitas Fisik"
+    },
+    {
+        "kode": "0055",
+        "desc": "Gangguan Pola Tidur"
+    },
+    {
+        "kode": "0056",
+        "desc": "Intoleransi Aktivitas"
+    },
+    {
+        "kode": "0057",
+        "desc": "Keletihan"
+    },
+    {
+        "kode": "0058",
+        "desc": "Kesiapan Peningkatan Tidur"
+    },
+    {
+        "kode": "0059",
+        "desc": "Risiko Disorganisasi Perilaku Bayi"
+    },
+    {
+        "kode": "0060",
+        "desc": "Risiko Intoleransi Aktivitas"
+    },
+    {
+        "kode": "0061",
+        "desc": "Disrefleksia Otonom"
+    },
+    {
+        "kode": "0062",
+        "desc": "Gangguan Memori"
+    },
+    {
+        "kode": "0063",
+        "desc": "Gangguan Menelan"
+    },
+    {
+        "kode": "0064",
+        "desc": "Konfusi Akut"
+    },
+    {
+        "kode": "0065",
+        "desc": "Konfusi Kronis"
+    },
+    {
+        "kode": "0066",
+        "desc": "Penurunan Kapasitas Adaptif Intrakranial"
+    },
+    {
+        "kode": "0067",
+        "desc": "Risiko Disfungsi Neurovaskuler Perifer"
+    },
+    {
+        "kode": "0068",
+        "desc": "Risiko Konfusi Akut"
+    },
+    {
+        "kode": "0069",
+        "desc": "Disfungsi Seksual"
+    },
+    {
+        "kode": "0070",
+        "desc": "Kesiapan Persalinan"
+    },
+    {
+        "kode": "0071",
+        "desc": "Pola Seksual Tidak Efektif"
+    },
+    {
+        "kode": "0072",
+        "desc": "Risiko Disfungsi Seksual"
+    },
+    {
+        "kode": "0073",
+        "desc": "Risiko Kehamilan Tidak Dikehendaki"
+    },
+    {
+        "kode": "0074",
+        "desc": "Gangguan Rasa Nyaman"
+    },
+    {
+        "kode": "0075",
+        "desc": "Ketidaknyamanan Pasca Partum"
+    },
+    {
+        "kode": "0076",
+        "desc": "Nausea"
+    },
+    {
+        "kode": "0077",
+        "desc": "Nyeri Akut"
+    },
+    {
+        "kode": "0078",
+        "desc": "Nyeri Kronis"
+    },
+    {
+        "kode": "0079",
+        "desc": "Nyeri Melahirkan"
+    },
+    {
+        "kode": "0080",
+        "desc": "Ansietas"
+    },
+    {
+        "kode": "0081",
+        "desc": "Berduka"
+    },
+    {
+        "kode": "0082",
+        "desc": "Distres Spiritual"
+    },
+    {
+        "kode": "0083",
+        "desc": "Gagguan Citra Tubuh"
+    },
+    {
+        "kode": "0084",
+        "desc": "Gangguan Identitas Diri"
+    },
+    {
+        "kode": "0085",
+        "desc": "Gangguan Persepsi Sensori"
+    },
+    {
+        "kode": "0086",
+        "desc": "Harga Diri Rendah Kronis"
+    },
+    {
+        "kode": "0087",
+        "desc": "Harga Diri Rendah Situasional"
+    },
+    {
+        "kode": "0088",
+        "desc": "Keputusasaan"
+    },
+    {
+        "kode": "0089",
+        "desc": "Kesiapan Peningkatan Konsep Diri"
+    },
+    {
+        "kode": "0090",
+        "desc": "Kesiapan Peningkatan Koping Keluarga"
+    },
+    {
+        "kode": "0091",
+        "desc": "Kesiapan Peningkatan Koping Komunitas"
+    },
+    {
+        "kode": "0092",
+        "desc": "Ketidakberdayaan"
+    },
+    {
+        "kode": "0093",
+        "desc": "Ketidakmampuan Koping Keluarga"
+    },
+    {
+        "kode": "0094",
+        "desc": "Koping Defensif"
+    },
+    {
+        "kode": "0095",
+        "desc": "Koping Komunitas Tidak Efektif"
+    },
+    {
+        "kode": "0096",
+        "desc": "Koping Tidak Efektif"
+    },
+    {
+        "kode": "0097",
+        "desc": "Penurunan Koping Keluarga"
+    },
+    {
+        "kode": "0098",
+        "desc": "Penyangkalan Tidak Efektif"
+    },
+    {
+        "kode": "0099",
+        "desc": "Perilaku Kesehatan Cenderung Berisiko"
+    },
+    {
+        "kode": "0100",
+        "desc": "Risiko Distres Spiritual"
+    },
+    {
+        "kode": "0101",
+        "desc": "Risiko Harga Diri Rendah Kronis"
+    },
+    {
+        "kode": "0102",
+        "desc": "Risiko Harga Diri Rendah Situasional"
+    },
+    {
+        "kode": "0103",
+        "desc": "Risiko Ketidakberdayaan"
+    },
+    {
+        "kode": "0104",
+        "desc": "Sindrom Pasca Trauma"
+    },
+    {
+        "kode": "0105",
+        "desc": "Gangguan Tumbuh Kembang"
+    },
+    {
+        "kode": "0106",
+        "desc": "Risiko Gangguan Perkembangan"
+    },
+    {
+        "kode": "0107",
+        "desc": "Risiko Gangguan Pertumbuhan"
+    },
+    {
+        "kode": "0108",
+        "desc": "Defisit Perawatan Diri"
+    },
+    {
+        "kode": "0109",
+        "desc": "Defisit Kesehatan Komunitas"
+    },
+    {
+        "kode": "0110",
+        "desc": "Defisit Pengetahuan"
+    },
+    {
+        "kode": "0111",
+        "desc": "Kesiapan Peningkatan Manajemen Kesehatan"
+    },
+    {
+        "kode": "0112",
+        "desc": "Kesiapan Peningkatan Pengetahuan"
+    },
+    {
+        "kode": "0113",
+        "desc": "Ketidakpatuhan"
+    },
+    {
+        "kode": "0114",
+        "desc": "Manajemen Kesehatan Keluarga Tidak Efektif"
+    },
+    {
+        "kode": "0115",
+        "desc": "Manajemen Kesehatan Tidak Efektif"
+    },
+    {
+        "kode": "0116",
+        "desc": "Pemeliharaan Kesehatan Tidak Efektif"
+    },
+    {
+        "kode": "0117",
+        "desc": "Gangguan Interaksi Sosial"
+    },
+    {
+        "kode": "0118",
+        "desc": "Gangguan Komunikasi Verbal"
+    },
+    {
+        "kode": "0119",
+        "desc": "Gangguan Proses Keluarga"
+    },
+    {
+        "kode": "0120",
+        "desc": "Isoloasi Sosial"
+    },
+    {
+        "kode": "0121",
+        "desc": "Keseiapan Peningkatan Menjadi Orang Tua"
+    },
+    {
+        "kode": "0122",
+        "desc": "Kesiapan Peningkatan Proses Keluarga"
+    },
+    {
+        "kode": "0123",
+        "desc": "Ketegangan Peran Pemberi Asuhan"
+    },
+    {
+        "kode": "0124",
+        "desc": "Penampilan Peran Tidak Efektif"
+    },
+    {
+        "kode": "0125",
+        "desc": "Pencapaian Peran Menjadi Orang Tua"
+    },
+    {
+        "kode": "0126",
+        "desc": "Risiko Gangguan Perlekatan"
+    },
+    {
+        "kode": "0127",
+        "desc": "Risiko Proses Pengasuhan Tidak Efektif"
+    },
+    {
+        "kode": "0128",
+        "desc": "Gangguan Integritas Kulit/Jaringan"
+    },
+    {
+        "kode": "0129",
+        "desc": "Hipertermia"
+    },
+    {
+        "kode": "0130",
+        "desc": "Hipotermia"
+    },
+    {
+        "kode": "0131",
+        "desc": "Perilaku Kekerasan"
+    },
+    {
+        "kode": "0132",
+        "desc": "Perlambatan Pemulihan Pascabedah"
+    },
+    {
+        "kode": "0133",
+        "desc": "Risiko Alergi"
+    },
+    {
+        "kode": "0134",
+        "desc": "Risiko Bunuh Diri"
+    },
+    {
+        "kode": "0135",
+        "desc": "Risiko Cedera"
+    },
+    {
+        "kode": "0136",
+        "desc": "Risiko Cedera Pada Ibu"
+    },
+    {
+        "kode": "0137",
+        "desc": "Risiko Cedera Pada Janin"
+    },
+    {
+        "kode": "0138",
+        "desc": "Risiko Gangguan Integritas Kulit/Jaringan"
+    },
+    {
+        "kode": "0139",
+        "desc": "Risiko Hipotermia"
+    },
+    {
+        "kode": "0140",
+        "desc": "Risiko Hipotermia Perioperatif"
+    },
+    {
+        "kode": "0141",
+        "desc": "Risiko Infeksi"
+    },
+    {
+        "kode": "0142",
+        "desc": "Risiko Jatuh"
+    },
+    {
+        "kode": "0143",
+        "desc": "Risiko Luka Tekan"
+    },
+    {
+        "kode": "0144",
+        "desc": "Risiko Mutilasi Diri"
+    },
+    {
+        "kode": "0145",
+        "desc": "Risiko Perilaku Kekerasan"
+    },
+    {
+        "kode": "0146",
+        "desc": "Risiko Perlambatan Pemulihan Pascabedah"
+    },
+    {
+        "kode": "0147",
+        "desc": "Risiko Termoregulasi Tidak Efektif"
+    },
+    {
+        "kode": "0148",
+        "desc": "Termoregulasi Tidak Efektif"
+    }
+]

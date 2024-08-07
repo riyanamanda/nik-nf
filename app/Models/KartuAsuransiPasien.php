@@ -12,4 +12,10 @@ class KartuAsuransiPasien extends Model
     protected $connection = 'gos_master';
 
     protected $table = 'master.kartu_asuransi_pasien';
+
+    protected $primaryKey = 'NORM';
+
+    protected $fillable = ['NOMOR', 'NORM'];
+
+    public $timestamps = false;
 }
