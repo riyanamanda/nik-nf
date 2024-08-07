@@ -12,7 +12,6 @@ use App\Models\KontakPasien;
 use App\Models\Pasien;
 use App\Models\PasienLog;
 use App\Models\Patient;
-use App\Models\Pendaftaran;
 use App\Models\Peserta;
 use App\Models\PesertaBpjs;
 use App\Models\Reservasi;
@@ -27,7 +26,7 @@ class PasienController extends Controller
 {
     public function index()
     {
-        return view('pasien');
+        return view('pages.pasien');
     }
 
     public function update(Request $request)

@@ -19,8 +19,8 @@ class IndikatorKeperawatan extends Model
 
     public $timestamps = false;
 
-    function jenis_indikator()
+    public function jenis_indikator()
     {
-        return $this->belongsTo(JenisIndikatorKeperawatan::class, 'ID', 'ID');
+        return $this->belongsTo(JenisIndikatorKeperawatan::class, 'JENIS', 'ID');
     }
 }

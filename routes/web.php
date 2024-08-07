@@ -3,8 +3,6 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KeperawatanController;
 use App\Http\Controllers\PasienController;
-use App\Models\DiagnosaKeperawatan;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,4 +33,5 @@ Route::controller(PasienController::class)
 Route::controller(KeperawatanController::class)
     ->group(function () {
         Route::get('/keperawatan', 'index')->name('keperawatan.index');
+        Route::post('/keperawatan', 'store')->name('keperawatan.store');
     });

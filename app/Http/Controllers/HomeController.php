@@ -39,7 +39,7 @@ class HomeController extends Controller
             )
             ->paginate(10);
 
-        return view('home', compact('patients'));
+        return view('home', compact('pages.patients'));
     }
 
     public function export()
@@ -65,7 +65,7 @@ class HomeController extends Controller
             return back()->withToastError($patient->identitas->NAMA.' '.$bpjs['metaData']['message']);
         }
 
-        return view('edit-nik', compact('patient', 'bpjs'));
+        return view('pages.edit-nik', compact('patient', 'bpjs'));
     }
 
     public function update_nik(Request $request, $norm)
