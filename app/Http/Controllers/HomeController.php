@@ -39,7 +39,7 @@ class HomeController extends Controller
             )
             ->paginate(10);
 
-        return view('home', compact('pages.patients'));
+        return view('pages.home', compact('patients'));
     }
 
     public function export()
