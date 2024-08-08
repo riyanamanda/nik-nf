@@ -56,10 +56,10 @@
                         <td class="p-3 text-sm text-gray-800 whitespace-nowrap">
                             {{ $perawatan->jenis_indikator->DESKRIPSI }}
                         </td>
-                        <td class="p-3 text-sm text-gray-800 whitespace-nowrap">
+                        <td class="p-3 text-sm text-gray-800 whitespace-nowrap text-wrap">
                             {{ $perawatan->DESKRIPSI }}
                         </td>
-                        <td class="p-3 text-sm text-gray-800 whitespace-nowrap">
+                        <td class="p-3 text-sm text-gray-800 whitespace-nowrap text-center">
                             @if ($perawatan->KATEGORI === 1)
                                 <span>Mayor</span>
                             @elseif($perawatan->KATEGORI === 2)
