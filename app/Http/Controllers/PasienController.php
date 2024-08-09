@@ -26,7 +26,7 @@ class PasienController extends Controller
 {
     public function index()
     {
-        return view('pages.pasien');
+        return view('pages.pasien.index');
     }
 
     public function update(Request $request)

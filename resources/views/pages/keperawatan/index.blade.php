@@ -6,13 +6,11 @@
 
 @section('content')
     <div class="bg-white p-5 rounded shadow border-none">
-        <div class="flex items-center justify-start space-x-3">
-            <a href="{{ route('keperawatan.mapping.diagnosa') }}">
-                <button class="px-3 py-1 bg-sky-500 text-white rounded mb-5 text-sm">Mapping Diagnosa</button>
-            </a>
-            <a href="#">
-                <button class="px-3 py-1 bg-yellow-500 text-white rounded mb-5 text-sm">Mapping Intervensi</button>
-            </a>
+        <div class="flex items-center justify-start space-x-3 mb-3">
+            <x-ui.button url="{{ route('keperawatan.mapping.diagnosa') }}"
+                class="bg-sky-500 text-white hover:bg-sky-600">Mapping diagnosa</x-ui.button>
+
+            <x-ui.button class="bg-yellow-500 text-white hover:bg-yellow-600">Mapping Intervensi</x-ui.button>
         </div>
 
         <div class="mb-5 border p-3 rounded">
@@ -36,14 +34,15 @@
                     class="block w-full rounded-md max-w-36 mr-3 border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                     <option value="0" selected>None</option>
                     @foreach ($kategori as $item)
-                        <option value="{{ $item->value }}" @selected(old('kategori') == $item->value)>{{ str()->title($item->name) }}</option>
+                        <option value="{{ $item->value }}" @selected(old('kategori') == $item->value)>{{ str()->title($item->name) }}
+                        </option>
                     @endforeach
                 </select>
 
-                <button type="submit" tabindex="4"
-                    class="bg-blue-500 px-3 py-1 text-white shadow-md shadow-blue-500/20 rounded text-xs font-medium tracking-wide hover:bg-blue-700 transition-colors duration-200 ml-auto">
+                <x-ui.button type="submit" tabindex="4"
+                    class="bg-blue-500 text-white hover:bg-blue-700 ml-auto">
                     Simpan
-                </button>
+                </x-ui.button>
             </form>
         </div>
 

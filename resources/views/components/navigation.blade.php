@@ -4,16 +4,18 @@
             <div class="flex items-center">
                 <div class="flex items-baseline space-x-4">
                     <a href="{{ route('home') }}"
-                        class="rounded-md px-3 py-2 text-sm font-medium text-white @if(request()->segment(1) == '') bg-gray-900  @endif"
+                        class="rounded-md px-3 py-2 text-sm font-medium text-white @if (request()->segment(1) == '') bg-gray-900 @endif"
                         aria-current="page">Home</a>
-
+                    <a href="{{ route('satusehat.index') }}"
+                        class="rounded-md px-3 py-2 text-sm font-medium text-white @if (request()->segment(1) == 'satu-sehat') bg-gray-900 @endif"
+                        aria-current="page">Satu Sehat</a>
                     <a href="{{ route('pasien.index') }}"
-                        class="rounded-md px-3 py-2 text-sm font-medium text-white @if(request()->segment(1) == 'pasien') bg-gray-900  @endif"
+                        class="rounded-md px-3 py-2 text-sm font-medium text-white @if (request()->segment(1) == 'pasien') bg-gray-900 @endif"
                         aria-current="page">Pasien</a>
                     <a href="{{ route('keperawatan.index') }}"
-                        class="rounded-md px-3 py-2 text-sm font-medium text-white @if(
-                        request()->segment(1) == 'keperawatan' || request()->segment(1) == 'mapping-diagnosa' || request()->segment(1) == 'mapping-intervensi'
-                        ) bg-gray-900  @endif"
+                        class="rounded-md px-3 py-2 text-sm font-medium text-white @if (request()->segment(1) == 'keperawatan' ||
+                                request()->segment(1) == 'mapping-diagnosa' ||
+                                request()->segment(1) == 'mapping-intervensi') bg-gray-900 @endif"
                         aria-current="page">Keperawatan</a>
                 </div>
             </div>

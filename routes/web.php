@@ -3,6 +3,8 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KeperawatanController;
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\SatusehatController;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,20 +21,31 @@ use Illuminate\Support\Facades\Route;
 Route::controller(HomeController::class)
     ->group(function () {
         Route::get('/', 'index')->name('home');
+    });
+
+Route::controller(SatusehatController::class)
+    ->prefix('satu-sehat')
+    ->name('satusehat.')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
         Route::get('/edit-nik/{norm}/{no_kartu}', 'edit_nik')->name('edit.nik');
-        Route::patch('/edit-nik/{norm}', 'update_nik')->name('edit.update');
+        Route::patch('/edit-nik/{norm}', 'update_nik')->name('nik.update');
         Route::get('/export', 'export')->name('export');
     });
 
 Route::controller(PasienController::class)
+    ->prefix('pasien')
+    ->name('pasien.')
     ->group(function () {
-        Route::get('/pasien', 'index')->name('pasien.index');
-        Route::put('/pasien', 'update')->name('pasien.update');
+        Route::get('/', 'index')->name('index');
+        Route::put('/', 'update')->name('update');
     });
 
 Route::controller(KeperawatanController::class)
+    ->prefix('keperawatan')
+    ->name('keperawatan.')
     ->group(function () {
-        Route::get('/keperawatan', 'index')->name('keperawatan.index');
-        Route::post('/keperawatan', 'store')->name('keperawatan.store');
-        Route::get('/mapping-diagnosa', 'mappingDiagnosa')->name('keperawatan.mapping.diagnosa');
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+        Route::get('/mapping-diagnosa', 'mappingDiagnosa')->name('mapping.diagnosa');
     });

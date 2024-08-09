@@ -6,6 +6,11 @@
 
 @section('content')
     <div class="bg-white p-5 rounded shadow border-none">
+        <div class="text-end">
+            <x-ui.button url="{{ url()->previous() }}" class="bg-stone-500 text-white hover:bg-stone-600">
+                Kembali
+            </x-ui.button>
+        </div>
 
         <table class="w-full">
             <thead class="bg-gray-50 border-b-2 border-gray-200">
@@ -29,7 +34,8 @@
                             {{ $item->DESKRIPSI }}
                         </td>
                         <td class="p-3 text-sm text-gray-800 whitespace-nowrap text-wrap">
-                            <button class="px-3 py-1 text-white bg-blue-500 rounded font-medium text-xs tracking-wide">Update</button>
+                            <button
+                                class="px-3 py-1 text-white bg-blue-500 rounded font-medium text-xs tracking-wide">Update</button>
                         </td>
                     </tr>
                 @empty
