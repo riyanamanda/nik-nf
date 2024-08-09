@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\KategoriIndikatorKeperawatanEnum;
+use App\Models\DiagnosaKeperawatan;
 use App\Models\IndikatorKeperawatan;
 use App\Models\JenisIndikatorKeperawatan;
 use Illuminate\Http\Request;
@@ -42,5 +43,13 @@ class KeperawatanController extends Controller
         ]);
 
         return to_route('keperawatan.index')->withToastSuccess('Indikator berhasil disimpan');
+    }
+
+    public function mappingDiagnosa()
+    {
+        $diagnosa = DiagnosaKeperawatan::query()
+            ->paginate(10);
+
+        return view('pages.keperawatan.mapping-diagnosa', compact('diagnosa'));
     }
 }

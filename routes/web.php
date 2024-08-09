@@ -34,4 +34,5 @@ Route::controller(KeperawatanController::class)
     ->group(function () {
         Route::get('/keperawatan', 'index')->name('keperawatan.index');
         Route::post('/keperawatan', 'store')->name('keperawatan.store');
+        Route::get('/mapping-diagnosa', 'mappingDiagnosa')->name('keperawatan.mapping.diagnosa');
     });

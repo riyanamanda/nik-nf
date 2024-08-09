@@ -13,17 +13,17 @@
             <div class="space-y-12">
                 <div class="border-b border-gray-900/10 pb-12">
                     <h2 class="text-base font-semibold leading-7 text-gray-900">Pasien</h2>
-                    <p class="text-xs leading-6 text-red-500"><span class="font-medium">NORM</span> pasien dapat diganti jika
+                    <p class="text-xs leading-6 text-red-500 font-medium"><span class="font-bold">NORM</span> pasien dapat diganti jika
                         belom didaftarkan ke
-                        poli. Jika pasien sudah pernah terdaftar di poli maka ubah <span class="font-medium">NORM</span>
-                        secara manual pada DB
-                        <span class="font-medium">pendaftaran.pendaftaran</span>
+                        poli. Jika pasien sudah pernah terdaftar di poli maka ubah <span class="font-bold">NORM</span>
+                        melalui form ini, setalh itu ubah secara manual pada DB
+                        <span class="font-bold">pendaftaran.pendaftaran</span>
                     </p>
 
                     <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div class="sm:col-span-3">
                             <label for="norm" class="block text-sm font-medium leading-6 text-gray-900">
-                                NORM
+                                NORM Lama
                             </label>
                             <div class="mt-2">
                                 <input type="text" name="norm" id="norm"
@@ -33,7 +33,7 @@
 
                         <div class="sm:col-span-3">
                             <label for="norm_baru" class="block text-sm font-medium leading-6 text-gray-900">
-                                NORM baru
+                                NORM Baru
                             </label>
                             <div class="mt-2">
                                 <input type="text" name="norm_baru" id="norm_baru"

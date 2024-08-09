@@ -6,6 +6,15 @@
 
 @section('content')
     <div class="bg-white p-5 rounded shadow border-none">
+        <div class="flex items-center justify-start space-x-3">
+            <a href="{{ route('keperawatan.mapping.diagnosa') }}">
+                <button class="px-3 py-1 bg-sky-500 text-white rounded mb-5 text-sm">Mapping Diagnosa</button>
+            </a>
+            <a href="#">
+                <button class="px-3 py-1 bg-yellow-500 text-white rounded mb-5 text-sm">Mapping Intervensi</button>
+            </a>
+        </div>
+
         <div class="mb-5 border p-3 rounded">
             <h1 class="text-sm font-medium mb-3">Form pengisian indikator keperawatan</h1>
             <form action="{{ route('keperawatan.store') }}" method="POST" class="flex justify-between items-center">
