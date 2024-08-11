@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('header')
-    <x-header title="Asuhan Keperawatan" desc="Indikator keperawatan berdasarkan jenis dan kategorinya." />
+    <x-header title="Mapping Intervensi" desc="Mapping intervensi dengan indikator keperawatan berdasarkan jenis dan kategorinya." />
 @endsection
 
 @section('content')
     <div class="bg-white p-5 rounded shadow border-none mx-auto">
         <div class="mb-5 border p-3 rounded w-full">
-            <h1 class="text-sm font-medium mb-3">Mapping Intervensi: {{ $intervensi->DESKRIPSI }}</h1>
+            <h1 class="text-sm mb-3">Intervensi: <span class="font-medium">{{ $intervensi->DESKRIPSI }}</span></h1>
             <form action="{{ route('keperawatan.intervensi.mapping.store', $intervensi) }}" method="POST">
                 @csrf
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    <x-header title="Asuhan Keperawatan" desc="Indikator keperawatan berdasarkan jenis dan kategorinya." />
+    <x-header title="Intervensi" desc="Indikator keperawatan berdasarkan jenis dan kategorinya." />
 @endsection
 
 @section('content')
