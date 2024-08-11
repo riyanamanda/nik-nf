@@ -6,9 +6,13 @@
 
 @section('content')
     <div class="bg-white p-5 rounded shadow border-none">
-        <div class="text-end">
-            <x-ui.button url="{{ url()->previous() }}" class="bg-stone-500 text-white hover:bg-stone-600">
+        <div class="text-end space-x-1 mb-3">
+            <x-ui.button url="{{ route('keperawatan.index') }}" class="bg-stone-500 text-white hover:bg-stone-600">
                 Kembali
+            </x-ui.button>
+
+            <x-ui.button url="{{ route('keperawatan.diagnosa.create') }}" class="bg-blue-500 text-white hover:bg-blue-600">
+                Tambah
             </x-ui.button>
         </div>
 
@@ -18,7 +22,7 @@
                     <th class="w-5 p-3 text-sm font-semibold tracking-wide text-left">#</th>
                     <th class="w-20 p-3 text-sm font-semibold tracking-wide text-left">Kode</th>
                     <th class="p-3 text-sm font-semibold tracking-wide text-left">Deskripsi</th>
-                    <th class="p-3 text-sm font-semibold tracking-wide text-left">Action</th>
+                    <th class="p-3 text-sm font-semibold tracking-wide text-end"></th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
@@ -33,9 +37,12 @@
                         <td class="p-3 text-sm text-gray-800 whitespace-nowrap text-wrap">
                             {{ $item->DESKRIPSI }}
                         </td>
-                        <td class="p-3 text-sm text-gray-800 whitespace-nowrap text-wrap">
-                            <button
-                                class="px-3 py-1 text-white bg-blue-500 rounded font-medium text-xs tracking-wide">Update</button>
+                        <td class="p-3 text-sm text-gray-800 whitespace-nowrap text-wrap text-end space-x-1">
+                            <a href="#">
+                                <x-ui.button url="{{ route('keperawatan.diagnosa.mapping', $item) }}" class="text-white bg-green-500 hover:bg-green-600">
+                                    Mapping
+                                </x-ui.button>
+                            </a>
                         </td>
                     </tr>
                 @empty

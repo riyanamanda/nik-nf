@@ -6,9 +6,11 @@
                     <a href="{{ route('home') }}"
                         class="rounded-md px-3 py-2 text-sm font-medium text-white @if (request()->segment(1) == '') bg-gray-900 @endif"
                         aria-current="page">Home</a>
-                    <a href="{{ route('satusehat.index') }}"
-                        class="rounded-md px-3 py-2 text-sm font-medium text-white @if (request()->segment(1) == 'satu-sehat') bg-gray-900 @endif"
-                        aria-current="page">Satu Sehat</a>
+                    @if (config('vclaim.api.consid') != null & config('vclaim.api.secretkey') != null & config('vclaim.api.userkey') != null)
+                        <a href="{{ route('satusehat.index') }}"
+                            class="rounded-md px-3 py-2 text-sm font-medium text-white @if (request()->segment(1) == 'satu-sehat') bg-gray-900 @endif"
+                            aria-current="page">Satu Sehat</a>
+                    @endif
                     <a href="{{ route('pasien.index') }}"
                         class="rounded-md px-3 py-2 text-sm font-medium text-white @if (request()->segment(1) == 'pasien') bg-gray-900 @endif"
                         aria-current="page">Pasien</a>

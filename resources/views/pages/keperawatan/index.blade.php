@@ -7,7 +7,7 @@
 @section('content')
     <div class="bg-white p-5 rounded shadow border-none">
         <div class="flex items-center justify-start space-x-3 mb-3">
-            <x-ui.button url="{{ route('keperawatan.mapping.diagnosa') }}"
+            <x-ui.button url="{{ route('keperawatan.diagnosa.index') }}"
                 class="bg-sky-500 text-white hover:bg-sky-600">Mapping diagnosa</x-ui.button>
 
             <x-ui.button class="bg-yellow-500 text-white hover:bg-yellow-600">Mapping Intervensi</x-ui.button>

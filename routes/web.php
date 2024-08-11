@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\DiagnosaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KeperawatanController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\SatusehatController;
-use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,5 +47,17 @@ Route::controller(KeperawatanController::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
-        Route::get('/mapping-diagnosa', 'mappingDiagnosa')->name('mapping.diagnosa');
+
+        Route::controller(DiagnosaController::class)
+            ->prefix('diagnosa')
+            ->name('diagnosa.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/create', 'store')->name('store');
+                Route::get('/mapping/{diagnosa}', 'mapping')->name('mapping');
+                Route::post('/mapping/{diagnosa}', 'mappingStore')->name('mapping.store');
+
+                Route::get('/indikator-keperawatan/{jenis}', 'getIndikator');
+            });
     });
