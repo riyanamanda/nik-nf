@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DiagnosaController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IntervensiController;
 use App\Http\Controllers\KeperawatanController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\SatusehatController;
@@ -56,8 +57,17 @@ Route::controller(KeperawatanController::class)
                 Route::get('/create', 'create')->name('create');
                 Route::post('/create', 'store')->name('store');
                 Route::get('/mapping/{diagnosa}', 'mapping')->name('mapping');
-                Route::post('/mapping/{diagnosa}', 'mappingStore')->name('mapping.store');
+                Route::post('/mapping/{intervensi}', 'mappingStore')->name('mapping.store');
 
                 Route::get('/indikator-keperawatan/{jenis}', 'getIndikator');
+            });
+
+        Route::controller(IntervensiController::class)
+            ->prefix('intervensi')
+            ->name('intervensi.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/mapping/{intervensi}', 'mapping')->name('mapping');
+                Route::post('/mapping/{intervensi}', 'mappingStore')->name('mapping.store');
             });
     });

@@ -18,7 +18,7 @@ class SatusehatController extends Controller
 
     public function __construct()
     {
-        $this->bridging = new BridgeVclaim();
+        $this->bridging = new BridgeVclaim;
     }
 
     public function index()

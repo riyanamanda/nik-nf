@@ -10,7 +10,7 @@
             <x-ui.button url="{{ route('keperawatan.diagnosa.index') }}"
                 class="bg-sky-500 text-white hover:bg-sky-600">Mapping diagnosa</x-ui.button>
 
-            <x-ui.button class="bg-yellow-500 text-white hover:bg-yellow-600">Mapping Intervensi</x-ui.button>
+            <x-ui.button url="{{ route('keperawatan.intervensi.index') }}" class="bg-yellow-500 text-white hover:bg-yellow-600">Mapping Intervensi</x-ui.button>
         </div>
 
         <div class="mb-5 border p-3 rounded">
