@@ -11,7 +11,10 @@ class KeperawatanController extends Controller
 {
     public function index()
     {
-        $keperawatan = IndikatorKeperawatan::with('jenis_indikator')->latest('ID')->paginate(10);
+        $keperawatan = IndikatorKeperawatan::with('jenis_indikator')
+            ->orderBy('DESKRIPSI', 'ASC')
+            ->paginate(10);
+
         $jenis = JenisIndikatorKeperawatan::all();
         $kategori = KategoriIndikatorKeperawatanEnum::cases();
 

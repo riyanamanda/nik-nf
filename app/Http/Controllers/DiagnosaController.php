@@ -70,7 +70,10 @@ class DiagnosaController extends Controller
 
     public function getIndikator($jenis)
     {
-        $indikator_keperawatan = IndikatorKeperawatan::query()->where('JENIS', $jenis)->get();
+        $indikator_keperawatan = IndikatorKeperawatan::query()
+            ->where('JENIS', $jenis)
+            ->orderBy('DESKRIPSI', 'ASC')
+            ->get();
 
         return response()->json([
             'success' => true,

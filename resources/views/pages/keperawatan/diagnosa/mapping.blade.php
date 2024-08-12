@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('header')
-    <x-header title="Mapping Diagnosa Keperawatan" desc="Mapping diagnosa dengan indikator keperawatan berdasarkan jenis dan kategorinya." />
+    <x-header title="Mapping Diagnosa Keperawatan"
+        desc="Mapping diagnosa dengan indikator keperawatan berdasarkan jenis dan kategorinya." />
 @endsection
 
 @section('content')
@@ -22,7 +23,6 @@
 
                     <select name="indikator" id="indikator" tabindex="2"
                         class="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-
                     </select>
                 </div>
 
@@ -79,10 +79,10 @@
 @endsection
 
 @push('script')
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {
+            $('#indikator').select2();
+
             $('#jenis_indikator').on('change', function() {
                 var jenis = $(this).val();
                 $.ajax({
@@ -92,7 +92,8 @@
                         $('#indikator').empty();
                         $.each(data.data, function(key, indikator) {
                             $('#indikator').append(
-                                `<option value="${indikator.ID}">${indikator.DESKRIPSI}</option>`);
+                                `<option value="${indikator.ID}">${indikator.DESKRIPSI}</option>`
+                            );
 
                         });
                     },
