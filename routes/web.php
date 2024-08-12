@@ -57,7 +57,7 @@ Route::controller(KeperawatanController::class)
                 Route::get('/create', 'create')->name('create');
                 Route::post('/create', 'store')->name('store');
                 Route::get('/mapping/{diagnosa}', 'mapping')->name('mapping');
-                Route::post('/mapping/{intervensi}', 'mappingStore')->name('mapping.store');
+                Route::post('/mapping/{diagnosa}', 'mappingStore')->name('mapping.store');
 
                 Route::get('/indikator-keperawatan/{jenis}', 'getIndikator');
             });
