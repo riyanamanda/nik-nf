@@ -13,7 +13,7 @@
                 pernah dikirim tapi tidak dapat balikan ID.
             </h2>
 
-            <a href="{{ route('export') }}" target="_blank">
+            <a href="{{ route('satusehat.export') }}" target="_blank">
                 <button
                     class="bg-emerald-500 px-3 py-1 text-white shadow-md shadow-emerald-500/20 rounded text-sm hover:bg-emerald-700 transition-colors duration-200">Export</button>
             </a>
@@ -69,7 +69,7 @@
                         </td>
                         <td>
                             @if ($patient->asuransi != null)
-                                <a href="{{ route('edit.nik', [$patient->refId, $patient->asuransi->NOMOR]) }}">
+                                <a href="{{ route('satusehat.edit.nik', [$patient->refId, $patient->asuransi->NOMOR]) }}">
                                     <button
                                         class="bg-rose-500 px-3 py-1 text-white shadow-md shadow-rose-500/20 rounded text-xs hover:bg-rose-700 transition-colors duration-200">Update
                                         NIK</button>

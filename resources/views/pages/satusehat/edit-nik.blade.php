@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="bg-white p-5 rounded shadow border-none w-7/12 mx-auto">
-        <form action="{{ route('edit.update', $patient->refId) }}" method="POST">
+        <form action="{{ route('satusehat.nik.update', $patient->refId) }}" method="POST">
             @csrf
             @method('PATCH')
 
