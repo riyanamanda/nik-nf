@@ -48,6 +48,14 @@ class PasienController extends Controller
             return back()->withToastError('NORM tidak ditemukan');
         }
 
+        $new_pasien = Pasien::query()
+            ->where('NORM', $request->norm_baru)
+            ->get();
+
+        if ($new_pasien->isNotEmpty()) {
+            return back()->withToastError('NORM ' . $request->norm_baru . ' sudah ada.');
+        }
+
         DB::connection('gos_master')->transaction(function () use ($request) {
             $ktp = KartuIdentitasPasien::where('NORM', $request->norm)->get();
             if ($ktp->isNotEmpty()) {
