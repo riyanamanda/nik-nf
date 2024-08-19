@@ -6,6 +6,12 @@ use App\Http\Controllers\IntervensiController;
 use App\Http\Controllers\KeperawatanController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\SatusehatController;
+use App\Models\KartuIdentitasPasien;
+use App\Models\Pasien;
+use App\Models\Reservasi;
+use App\Models\TaskActionAntrian;
+use App\Models\TaskAntrianBridge;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -71,3 +77,42 @@ Route::controller(KeperawatanController::class)
                 Route::post('/mapping/{intervensi}', 'mappingStore')->name('mapping.store');
             });
     });
+
+Route::get('/task-antrian-4', function () {
+    $deleteTask = TaskActionAntrian::query()
+        ->where('RESPONSE', 'LIKE', '%TaskId terakhir 3%')
+        ->get();
+
+    foreach ($deleteTask as $task) {
+        $task->delete();
+    }
+
+    $reservasi = Reservasi::with('taa')
+        ->where('TANGGALKUNJUNGAN', Carbon::today())
+        ->where('STATUS', 2)
+        ->get();
+
+    foreach ($reservasi as $res) {
+        $t4 = $res->taa->where('TASK_ID', 4)->first();
+
+        if (is_null($t4)) {
+            $tab = TaskAntrianBridge::query()
+                ->where('REF', $res->POLI . $res->ID)
+                ->where('TANGGAL', Carbon::today()->toDateString())
+                ->where('TASK_ID', 4)
+                ->first();
+
+            if (!is_null($tab)) {
+                TaskActionAntrian::create([
+                    'TASK_ID' => $tab->TASK_ID,
+                    'ANTRIAN' => $res->ID,
+                    'TANGGAL' => $tab->TANGGAL_TASK,
+                    'WAKTU' => $tab->TANGGAL_TASK,
+                    'STATUS' => 0
+                ]);
+            }
+        }
+    }
+
+    return to_route('home')->withToastSuccess('Task ID 4 telah diperbaharui!');
+})->name('task.id.4');

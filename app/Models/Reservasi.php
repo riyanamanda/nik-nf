@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,4 +19,15 @@ class Reservasi extends Model
     protected $fillable = ['NORM'];
 
     public $timestamps = false;
+
+    function tab()
+    {
+        return $this->hasMany(TaskAntrianBridge::class, "NORM", "NORM")
+            ->where('TANGGAL', Carbon::today()->toDateString());
+    }
+
+    function taa()
+    {
+        return $this->hasMany(TaskActionAntrian::class, 'ANTRIAN', 'ID');
+    }
 }
