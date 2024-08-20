@@ -6,8 +6,6 @@ use App\Http\Controllers\IntervensiController;
 use App\Http\Controllers\KeperawatanController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\SatusehatController;
-use App\Models\KartuIdentitasPasien;
-use App\Models\Pasien;
 use App\Models\Reservasi;
 use App\Models\TaskActionAntrian;
 use App\Models\TaskAntrianBridge;
@@ -81,6 +79,7 @@ Route::controller(KeperawatanController::class)
 Route::get('/task-antrian-4', function () {
     $deleteTask = TaskActionAntrian::query()
         ->where('RESPONSE', 'LIKE', '%TaskId terakhir 3%')
+        ->orWhere('TANGGAL', '0000-00-00 00:00:00')
         ->get();
 
     foreach ($deleteTask as $task) {
@@ -97,19 +96,31 @@ Route::get('/task-antrian-4', function () {
 
         if (is_null($t4)) {
             $tab = TaskAntrianBridge::query()
-                ->where('REF', $res->POLI . $res->ID)
+                ->where('REF', $res->POLI.$res->ID)
                 ->where('TANGGAL', Carbon::today()->toDateString())
-                ->where('TASK_ID', 4)
-                ->first();
+                ->get();
 
-            if (!is_null($tab)) {
-                TaskActionAntrian::create([
-                    'TASK_ID' => $tab->TASK_ID,
-                    'ANTRIAN' => $res->ID,
-                    'TANGGAL' => $tab->TANGGAL_TASK,
-                    'WAKTU' => $tab->TANGGAL_TASK,
-                    'STATUS' => 0
-                ]);
+            $t3 = $tab->where('TASK_ID', 3)->first();
+            $t5 = $tab->where('TASK_ID', 5)->first();
+
+            if (! is_null($t3) || ! is_null($t5)) {
+                $t3_time = strtotime($t3->TANGGAL_TASK);
+                $t5_time = strtotime($t5->TANGGAL_TASK);
+
+                if ($t3_time < $t5_time) {
+                    $new_t4 = mt_rand($t3_time, $t5_time);
+                    $final_t4 = date('Y-m-d H:i:s', $new_t4);
+
+                    if ($tab->isNotEmpty()) {
+                        TaskActionAntrian::create([
+                            'TASK_ID' => 4,
+                            'ANTRIAN' => $res->ID,
+                            'TANGGAL' => $final_t4,
+                            'WAKTU' => $final_t4,
+                            'STATUS' => 0,
+                        ]);
+                    }
+                }
             }
         }
     }

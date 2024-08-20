@@ -20,7 +20,7 @@ class TaskActionAntrian extends Model
         'ANTRIAN',
         'TANGGAL',
         'WAKTU',
-        'STATUS'
+        'STATUS',
     ];
 
     public $timestamps = false;

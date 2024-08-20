@@ -53,7 +53,7 @@ class PasienController extends Controller
             ->get();
 
         if ($new_pasien->isNotEmpty()) {
-            return back()->withToastError('NORM ' . $request->norm_baru . ' sudah ada.');
+            return back()->withToastError('NORM '.$request->norm_baru.' sudah ada.');
         }
 
         DB::connection('gos_master')->transaction(function () use ($request) {

@@ -20,13 +20,13 @@ class Reservasi extends Model
 
     public $timestamps = false;
 
-    function tab()
+    public function tab()
     {
-        return $this->hasMany(TaskAntrianBridge::class, "NORM", "NORM")
+        return $this->hasMany(TaskAntrianBridge::class, 'NORM', 'NORM')
             ->where('TANGGAL', Carbon::today()->toDateString());
     }
 
-    function taa()
+    public function taa()
     {
         return $this->hasMany(TaskActionAntrian::class, 'ANTRIAN', 'ID');
     }
