@@ -8,7 +8,6 @@ use App\Http\Controllers\PasienController;
 use App\Http\Controllers\SatusehatController;
 use App\Models\Reservasi;
 use App\Models\TaskActionAntrian;
-use App\Models\TaskAntrianBridge;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
@@ -92,35 +91,25 @@ Route::get('/task-antrian-4', function () {
         ->get();
 
     foreach ($reservasi as $res) {
-        $t4 = $res->taa->where('TASK_ID', 4)->first();
+        $t3_taa = $res->taa->where('TASK_ID', 3)->first();
+        $t4_taa = $res->taa->where('TASK_ID', 4)->first();
+        $t5_taa = $res->taa->where('TASK_ID', 5)->first();
 
-        if (is_null($t4)) {
-            $tab = TaskAntrianBridge::query()
-                ->where('REF', $res->POLI.$res->ID)
-                ->where('TANGGAL', Carbon::today()->toDateString())
-                ->get();
+        if (! is_null($t3_taa) && is_null($t4_taa) && ! is_null($t5_taa)) {
+            $t3_time = strtotime($t3_taa->TANGGAL) + 60;
+            $t5_time = strtotime($t5_taa->TANGGAL) - 60;
 
-            $t3 = $tab->where('TASK_ID', 3)->first();
-            $t5 = $tab->where('TASK_ID', 5)->first();
+            if ($t3_time < $t5_time) {
+                $new_t4 = mt_rand($t3_time, $t5_time);
+                $final_t4 = date('Y-m-d H:i:s', $new_t4);
 
-            if (! is_null($t3) || ! is_null($t5)) {
-                $t3_time = strtotime($t3->TANGGAL_TASK);
-                $t5_time = strtotime($t5->TANGGAL_TASK);
-
-                if ($t3_time < $t5_time) {
-                    $new_t4 = mt_rand($t3_time, $t5_time);
-                    $final_t4 = date('Y-m-d H:i:s', $new_t4);
-
-                    if ($tab->isNotEmpty()) {
-                        TaskActionAntrian::create([
-                            'TASK_ID' => 4,
-                            'ANTRIAN' => $res->ID,
-                            'TANGGAL' => $final_t4,
-                            'WAKTU' => $final_t4,
-                            'STATUS' => 0,
-                        ]);
-                    }
-                }
+                TaskActionAntrian::create([
+                    'TASK_ID' => 4,
+                    'ANTRIAN' => $res->ID,
+                    'TANGGAL' => $final_t4,
+                    'WAKTU' => $final_t4,
+                    'STATUS' => 0,
+                ]);
             }
         }
     }
