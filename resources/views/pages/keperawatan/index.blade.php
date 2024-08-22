@@ -1,16 +1,13 @@
-@extends('layouts.app')
-
-@section('header')
+<x-layouts.app>
     <x-header title="Asuhan Keperawatan" desc="Indikator keperawatan berdasarkan jenis dan kategorinya." />
-@endsection
 
-@section('content')
     <div class="bg-white p-5 rounded shadow border-none">
         <div class="flex items-center justify-start space-x-3 mb-3">
             <x-ui.button url="{{ route('keperawatan.diagnosa.index') }}"
                 class="bg-sky-500 text-white hover:bg-sky-600">Mapping diagnosa</x-ui.button>
 
-            <x-ui.button url="{{ route('keperawatan.intervensi.index') }}" class="bg-yellow-500 text-white hover:bg-yellow-600">Mapping Intervensi</x-ui.button>
+            <x-ui.button url="{{ route('keperawatan.intervensi.index') }}"
+                class="bg-yellow-500 text-white hover:bg-yellow-600">Mapping Intervensi</x-ui.button>
         </div>
 
         <div class="mb-5 border p-3 rounded">
@@ -39,8 +36,7 @@
                     @endforeach
                 </select>
 
-                <x-ui.button type="submit" tabindex="4"
-                    class="bg-blue-500 text-white hover:bg-blue-700 ml-auto">
+                <x-ui.button type="submit" tabindex="4" class="bg-blue-500 text-white hover:bg-blue-700 ml-auto">
                     Simpan
                 </x-ui.button>
             </form>
@@ -89,4 +85,4 @@
             {{ $keperawatan->links() }}
         </div>
     </div>
-@endsection
+</x-layouts.app>

@@ -1,10 +1,6 @@
-@extends('layouts.app')
-
-@section('header')
+<x-layouts.app>
     <x-header title="No Rekam Medis" desc="Update norm pasien yang salah." />
-@endsection
 
-@section('content')
     <div class="bg-white rounded border-none mx-auto w-6/12 p-5">
         <form action="{{ route('pasien.update') }}" method="POST">
             @csrf
@@ -13,7 +9,9 @@
             <div class="space-y-12">
                 <div class="border-b border-gray-900/10 pb-12">
                     <h2 class="text-base font-semibold leading-7 text-gray-900">Pasien</h2>
-                    <p class="text-xs leading-6 text-red-500 font-medium"><span class="font-bold">NORM</span> pasien dapat diganti jika
+                    <p class="text-xs leading-6 text-red-500 font-medium"><span class="font-bold">NORM</span> pasien
+                        dapat
+                        diganti jika
                         belom didaftarkan ke
                         poli. Jika pasien sudah pernah terdaftar di poli maka ubah <span class="font-bold">NORM</span>
                         melalui form ini, setalh itu ubah secara manual pada DB
@@ -50,4 +48,4 @@
             </div>
         </form>
     </div>
-@endsection
+</x-layouts.app>

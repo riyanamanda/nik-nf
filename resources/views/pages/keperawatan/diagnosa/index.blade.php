@@ -1,17 +1,14 @@
-@extends('layouts.app')
-
-@section('header')
+<x-layouts.app>
     <x-header title="Diagnosa Keperawatan" desc="Standar diagnosa keperawatan Indonesia (SDKI)" />
-@endsection
 
-@section('content')
     <div class="bg-white p-5 rounded shadow border-none">
         <div class="text-end space-x-1 mb-3">
             <x-ui.button url="{{ route('keperawatan.index') }}" class="bg-stone-500 text-white hover:bg-stone-600">
                 Kembali
             </x-ui.button>
 
-            <x-ui.button url="{{ route('keperawatan.diagnosa.create') }}" class="bg-blue-500 text-white hover:bg-blue-600">
+            <x-ui.button url="{{ route('keperawatan.diagnosa.create') }}"
+                class="bg-blue-500 text-white hover:bg-blue-600">
                 Tambah
             </x-ui.button>
         </div>
@@ -39,7 +36,8 @@
                         </td>
                         <td class="p-3 text-sm text-gray-800 whitespace-nowrap text-wrap text-end space-x-1">
                             <a href="#">
-                                <x-ui.button url="{{ route('keperawatan.diagnosa.mapping', $item) }}" class="text-white bg-green-500 hover:bg-green-600">
+                                <x-ui.button url="{{ route('keperawatan.diagnosa.mapping', $item) }}"
+                                    class="text-white bg-green-500 hover:bg-green-600">
                                     Mapping
                                 </x-ui.button>
                             </a>
@@ -57,4 +55,4 @@
             {{ $diagnosa->links() }}
         </div>
     </div>
-@endsection
+</x-layouts.app>

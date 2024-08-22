@@ -1,10 +1,6 @@
-@extends('layouts.app')
-
-@section('header')
+<x-layouts.app>
     <x-header title="Diagnosa Keperawatan" desc="Standar diagnosa keperawatan Indonesia (SDKI)" />
-@endsection
 
-@section('content')
     <div class="bg-white p-5 rounded shadow border-none mx-auto w-8/12">
         <form action="{{ route('keperawatan.diagnosa.store') }}" method="POST">
             @csrf
@@ -25,7 +21,8 @@
             </div>
 
             <div class="text-end">
-                <x-ui.button type="button" url="{{ route('keperawatan.diagnosa.index') }}" class="text-white bg-gray-500 hover:bg-gray-600">
+                <x-ui.button type="button" url="{{ route('keperawatan.diagnosa.index') }}"
+                    class="text-white bg-gray-500 hover:bg-gray-600">
                     Cancel
                 </x-ui.button>
 
@@ -35,4 +32,4 @@
             </div>
         </form>
     </div>
-@endsection
+</x-layouts.app>

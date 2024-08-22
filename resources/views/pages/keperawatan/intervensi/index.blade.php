@@ -1,10 +1,6 @@
-@extends('layouts.app')
-
-@section('header')
+<x-layouts.app>
     <x-header title="Intervensi" desc="Indikator keperawatan berdasarkan jenis dan kategorinya." />
-@endsection
 
-@section('content')
     <div class="bg-white p-5 rounded shadow border-none">
         <div class="text-end space-x-1 mb-3">
             <x-ui.button url="{{ route('keperawatan.index') }}" class="bg-stone-500 text-white hover:bg-stone-600">
@@ -53,4 +49,4 @@
             {{ $intervensi->links() }}
         </div>
     </div>
-@endsection
+</x-layouts.app>

@@ -1,10 +1,6 @@
-@extends('layouts.app')
+<x-layouts.app>
+    <x-header title="Pasien" desc="Pasien satu sehat yang tidak memiliki ID satu sehat." />
 
-@section('header')
-    <x-header title="Pasien" desc="Pasien satu sehat yang tidak memiliki ID satu sehat."/>
-@endsection
-
-@section('content')
     <div class="bg-white p-5 rounded shadow border-none">
         <div class="flex items-start justify-between">
             <h2 class="text-xs mb-4">Pasien di-filter berdasarkan <span class="font-medium">id IS
@@ -69,7 +65,8 @@
                         </td>
                         <td>
                             @if ($patient->asuransi != null)
-                                <a href="{{ route('satusehat.edit.nik', [$patient->refId, $patient->asuransi->NOMOR]) }}">
+                                <a
+                                    href="{{ route('satusehat.edit.nik', [$patient->refId, $patient->asuransi->NOMOR]) }}">
                                     <button
                                         class="bg-rose-500 px-3 py-1 text-white shadow-md shadow-rose-500/20 rounded text-xs hover:bg-rose-700 transition-colors duration-200">Update
                                         NIK</button>
@@ -78,9 +75,9 @@
                         </td>
                     </tr>
                 @empty
-                <tr>
-                    <td colspan="9" class="text-center font-medium text-sm pt-5">Tidak ada data</td>
-                </tr>
+                    <tr>
+                        <td colspan="9" class="text-center font-medium text-sm pt-5">Tidak ada data</td>
+                    </tr>
                 @endforelse
             </tbody>
         </table>
@@ -89,4 +86,4 @@
             {{ $patients->links() }}
         </div>
     </div>
-@endsection
+</x-layouts.app>

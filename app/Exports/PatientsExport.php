@@ -20,7 +20,7 @@ class PatientsExport implements FromView, ShouldAutoSize, WithColumnFormatting, 
             ->where('statusRequest', 0)
             ->get();
 
-        return view('layouts.export', compact('patients'));
+        return view('components.layouts.export', compact('patients'));
     }
 
     public function columnFormats(): array
