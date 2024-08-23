@@ -31,7 +31,7 @@ class IntervensiController extends Controller
             ->latest('ID')
             ->paginate(10);
 
-        $jenis = JenisIndikatorKeperawatan::where('ID', '!=', 5)->get();
+        $jenis = JenisIndikatorKeperawatan::whereIn('ID', [6, 7, 8, 9])->get();
         $indikator = IndikatorKeperawatan::where('JENIS', '!=', 5)->get();
 
         return view('pages.keperawatan.intervensi.mapping', compact('intervensi', 'mapping', 'jenis', 'indikator'));

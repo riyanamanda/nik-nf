@@ -46,7 +46,9 @@ class DiagnosaController extends Controller
             ->latest('ID')
             ->paginate(10);
 
-        $jenis = JenisIndikatorKeperawatan::all();
+        $jenis = JenisIndikatorKeperawatan::query()
+            ->whereIn('id', [1, 2, 3, 4, 5, 10, 11])
+            ->get();
         $indikator = IndikatorKeperawatan::all();
 
         return view('pages.keperawatan.diagnosa.mapping', compact('diagnosa', 'mapping', 'jenis', 'indikator'));

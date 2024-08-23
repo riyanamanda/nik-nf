@@ -73,32 +73,32 @@
             {{ $mapping->links() }}
         </div>
     </div>
-</x-layouts.app>
 
-@push('script')
-    <script>
-        $(document).ready(function() {
-            $('#indikator').select2();
+    @push('script')
+        <script>
+            $(document).ready(function() {
+                $('#indikator').select2();
 
-            $('#jenis_indikator').on('change', function() {
-                var jenis = $(this).val();
-                $.ajax({
-                    url: '{{ url('') }}/keperawatan/diagnosa/indikator-keperawatan/' + jenis,
-                    type: 'GET',
-                    success: function(data) {
-                        $('#indikator').empty();
-                        $.each(data.data, function(key, indikator) {
-                            $('#indikator').append(
-                                `<option value="${indikator.ID}">${indikator.DESKRIPSI}</option>`
-                            );
+                $('#jenis_indikator').on('change', function() {
+                    var jenis = $(this).val();
+                    $.ajax({
+                        url: '{{ url('') }}/keperawatan/diagnosa/indikator-keperawatan/' + jenis,
+                        type: 'GET',
+                        success: function(data) {
+                            $('#indikator').empty();
+                            $.each(data.data, function(key, indikator) {
+                                $('#indikator').append(
+                                    `<option value="${indikator.ID}">${indikator.DESKRIPSI}</option>`
+                                );
 
-                        });
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Error:', error);
-                    }
+                            });
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error:', error);
+                        }
+                    });
                 });
             });
-        });
-    </script>
-@endpush
+        </script>
+    @endpush
+</x-layouts.app>
