@@ -61,6 +61,11 @@ dan jalankan perintah `artisan` untuk generate `key` baru.
 php artisan key:generate
 ```
 
+jalankan perintah `artisan` untuk `clear cache`. 
+```bash
+php artisan optimize:clear
+```
+
 ---
 
 Selesai. Buka aplikasi di web browser pada alamat [http://nik-nf.test](http://nik-nf.test).
@@ -75,4 +80,8 @@ Selesai. Buka aplikasi di web browser pada alamat [http://nik-nf.test](http://ni
 
 <div style="text-align:center">
 <img src="./public/asset/images/edit.png" />
+</div>
+
+<div style="text-align:center">
+<img src="./public/asset/images/askep.png" />
 </div>
