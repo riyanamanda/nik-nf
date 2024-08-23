@@ -24,9 +24,13 @@
                         aria-current="page">Keperawatan</a>
                 </div>
 
-                <div class="ml-auto">
+                <div class="ml-auto space-x-3">
                     <x-ui.button :url="route('task.id.4')" class="bg-white">
                         Task 4
+                    </x-ui.button>
+
+                    <x-ui.button :url="route('task.id.5')" class="bg-white">
+                        Task 5
                     </x-ui.button>
                 </div>
             </div>

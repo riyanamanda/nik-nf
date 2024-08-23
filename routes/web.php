@@ -6,9 +6,7 @@ use App\Http\Controllers\IntervensiController;
 use App\Http\Controllers\KeperawatanController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\SatusehatController;
-use App\Models\Reservasi;
-use App\Models\TaskActionAntrian;
-use Carbon\Carbon;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,44 +73,10 @@ Route::controller(KeperawatanController::class)
             });
     });
 
-Route::get('/task-antrian-4', function () {
-    $deleteTask = TaskActionAntrian::query()
-        ->where('RESPONSE', 'LIKE', '%TaskId terakhir 3%')
-        ->orWhere('TANGGAL', '0000-00-00 00:00:00')
-        ->get();
-
-    foreach ($deleteTask as $task) {
-        $task->delete();
-    }
-
-    $reservasi = Reservasi::with('taa')
-        ->where('TANGGALKUNJUNGAN', Carbon::today())
-        ->where('STATUS', 2)
-        ->get();
-
-    foreach ($reservasi as $res) {
-        $t3_taa = $res->taa->where('TASK_ID', 3)->first();
-        $t4_taa = $res->taa->where('TASK_ID', 4)->first();
-        $t5_taa = $res->taa->where('TASK_ID', 5)->first();
-
-        if (! is_null($t3_taa) && is_null($t4_taa) && ! is_null($t5_taa)) {
-            $t3_time = strtotime($t3_taa->TANGGAL) + 60;
-            $t5_time = strtotime($t5_taa->TANGGAL) - 60;
-
-            if ($t3_time < $t5_time) {
-                $new_t4 = mt_rand($t3_time, $t5_time);
-                $final_t4 = date('Y-m-d H:i:s', $new_t4);
-
-                TaskActionAntrian::create([
-                    'TASK_ID' => 4,
-                    'ANTRIAN' => $res->ID,
-                    'TANGGAL' => $final_t4,
-                    'WAKTU' => $final_t4,
-                    'STATUS' => 0,
-                ]);
-            }
-        }
-    }
-
-    return to_route('home')->withToastSuccess('Task ID 4 telah diperbaharui!');
-})->name('task.id.4');
+Route::controller(TaskController::class)
+    ->prefix('task')
+    ->name('task.id.')
+    ->group(function () {
+        Route::get('/task-antrian-4', 'taskId4')->name('4');
+        Route::get('/task-antrian-5', 'taskId5')->name('5');
+    });
