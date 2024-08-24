@@ -50,6 +50,7 @@ class TaskController extends Controller
 
         $reservasi = Reservasi::with('taa')
             ->where('TANGGALKUNJUNGAN', Carbon::today())
+            ->where('ID', 2408240024)
             ->where('STATUS', 2)
             ->get();
 
@@ -62,23 +63,25 @@ class TaskController extends Controller
                 if (strtotime($t5_taa->TANGGAL) <= strtotime($t4_taa->TANGGAL)) {
                     $t5_taa->delete();
                 }
+            }
 
-                if (! is_null($t4_taa) && is_null($t5_taa) && ! is_null($t6_taa)) {
-                    $t4_time = strtotime($t4_taa->TANGGAL) + 60;
-                    $t6_time = strtotime($t6_taa->TANGGAL) - 60;
+            $checkT5 = TaskActionAntrian::where('ANTRIAN', $res->ID)->where('TASK_ID', 5)->first();
 
-                    if ($t4_time < $t6_time) {
-                        $new_t5 = mt_rand($t4_time, $t6_time);
-                        $final_t5 = date('Y-m-d H:i:s', $new_t5);
+            if (! is_null($t4_taa) && is_null($checkT5) && ! is_null($t6_taa)) {
+                $t4_time = strtotime($t4_taa->TANGGAL) + 30;
+                $t6_time = strtotime($t6_taa->TANGGAL) - 30;
 
-                        TaskActionAntrian::create([
-                            'TASK_ID' => 5,
-                            'ANTRIAN' => $res->ID,
-                            'TANGGAL' => $final_t5,
-                            'WAKTU' => $final_t5,
-                            'STATUS' => 0,
-                        ]);
-                    }
+                if ($t4_time < $t6_time) {
+                    $new_t5 = mt_rand($t4_time, $t6_time);
+                    $final_t5 = date('Y-m-d H:i:s', $new_t5);
+
+                    TaskActionAntrian::create([
+                        'TASK_ID' => 5,
+                        'ANTRIAN' => $res->ID,
+                        'TANGGAL' => $final_t5,
+                        'WAKTU' => $final_t5,
+                        'STATUS' => 0,
+                    ]);
                 }
             }
         }
