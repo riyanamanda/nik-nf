@@ -50,6 +50,7 @@ class TaskController extends Controller
 
         $reservasi = Reservasi::with('taa')
             ->where('TANGGALKUNJUNGAN', Carbon::today())
+            ->where('ID', 2408280035)
             ->where('STATUS', 2)
             ->get();
 
@@ -79,6 +80,22 @@ class TaskController extends Controller
                             'STATUS' => 0,
                         ]);
                     }
+                }
+            } else {
+                $t4_time = strtotime($t4_taa->TANGGAL) + 60;
+                $t6_time = strtotime($t6_taa->TANGGAL) - 60;
+
+                if ($t4_time < $t6_time) {
+                    $new_t5 = mt_rand($t4_time, $t6_time);
+                    $final_t5 = date('Y-m-d H:i:s', $new_t5);
+
+                    TaskActionAntrian::create([
+                        'TASK_ID' => 5,
+                        'ANTRIAN' => $res->ID,
+                        'TANGGAL' => $final_t5,
+                        'WAKTU' => $final_t5,
+                        'STATUS' => 0,
+                    ]);
                 }
             }
         }
