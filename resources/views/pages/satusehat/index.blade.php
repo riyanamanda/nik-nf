@@ -3,10 +3,10 @@
 
     <div class="bg-white p-5 rounded shadow border-none">
         <div class="flex items-start justify-between">
-            <h2 class="text-xs mb-4">Pasien di-filter berdasarkan <span class="font-medium">id IS
+            <h2 class="text-xs">Pasien di-filter berdasarkan <span class="font-medium">id IS
                     NULL</span>
                 &amp;&amp; <span class="font-medium">statusRequest = 0</span> | artinya NIK pasien sudah
-                pernah dikirim tapi tidak dapat balikan ID.
+                pernah dikirim tapi tidak dapat balikan ID - <span class="font-bold text-red-500">{{ $patientsWithoutId }}</span> pasien.
             </h2>
 
             <a href="{{ route('satusehat.export') }}" target="_blank">

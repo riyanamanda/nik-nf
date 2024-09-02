@@ -39,7 +39,12 @@ class SatusehatController extends Controller
             )
             ->paginate(10);
 
-        return view('pages.satusehat.index', compact('patients'));
+            $patientsWithoutId = Patient::select('id', 'statusRequest')
+                ->where('id', null)
+                ->where('statusRequest', 0)
+                ->count();
+
+        return view('pages.satusehat.index', compact('patients', 'patientsWithoutId'));
     }
 
     public function export()
