@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use App\Models\Pasien;
 use App\Models\Patient;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -14,10 +15,15 @@ class PatientsExport implements FromView, ShouldAutoSize, WithColumnFormatting, 
 {
     public function view(): View
     {
-        $patients = Patient::with('identitas')
-            ->select('id', 'refId', 'nik', 'statusRequest')
+        $patients = Patient::with('identitas', 'asuransi')
+            ->select('id', 'birthDate', 'refId', 'nik', 'getDate', 'statusRequest')
             ->where('id', null)
             ->where('statusRequest', 0)
+            ->orderBy(
+                Pasien::query()
+                    ->select('NAMA')
+                    ->whereColumn('pasien.NORM', 'patient.refId')
+            )
             ->get();
 
         return view('components.layouts.export', compact('patients'));
@@ -26,7 +32,7 @@ class PatientsExport implements FromView, ShouldAutoSize, WithColumnFormatting, 
     public function columnFormats(): array
     {
         return [
-            'B' => '0',
+            'C' => '0',
         ];
     }
 
